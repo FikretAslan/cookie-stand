@@ -20,98 +20,56 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// create our first shop
-const seattle = {
-  location: "Seattle",
-  minCust: 23,
-  maxCust: 65,
-  avgCookiesPerCust: 6.3,
-  customersPerHour: [],
-  cookiesPerHour: [],
-  totalCookieSold: 0,
-  calculateSales: function () {
-    for (let i = 0; i < hours.length; i++) {
-      const randNum = randomNumber(this.minCust, this.maxCust);
-      this.customersPerHour.push(randNum);
-      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-      this.totalCookieSold += this.cookiesPerHour[i];
-    }
-  },
-};
+function City(
+  location,
+  mincust,
+  maxcust,
+  averagecookie,
+  custperhour,
+  cookiesperhour,
+  totalcookies
+) {
+  this.location = location;
+  this.minCust = mincust;
+  this.maxCust = maxcust;
+  this.avgCookiesPerCust = averagecookie;
+  this.customersPerHour = custperhour;
+  this.cookiesPerHour = cookiesperhour;
+  this.totalCookiesSold = totalcookies;
+}
 
-// copy and paste second shop
-const tokyo = {
-  location: "Tokyo",
-  minCust: 3,
-  maxCust: 24,
-  avgCookiesPerCust: 1.2,
-  customersPerHour: [],
-  cookiesPerHour: [],
-  totalCookieSold: 0,
-  calculateSales: function () {
-    for (let i = 0; i < hours.length; i++) {
-      const randNum = randomNumber(this.minCust, this.maxCust);
-      this.customersPerHour.push(randNum);
-      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-      this.totalCookieSold += this.cookiesPerHour[i];
-    }
-  },
-};
-// copy and paste third shop
-const dubai = {
-  location: "Dubai",
-  minCust: 11,
-  maxCust: 38,
-  avgCookiesPerCust: 3.7,
-  customersPerHour: [],
-  cookiesPerHour: [],
-  totalCookieSold: 0,
-  calculateSales: function () {
-    for (let i = 0; i < hours.length; i++) {
-      const randNum = randomNumber(this.minCust, this.maxCust);
-      this.customersPerHour.push(randNum);
-      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-      this.totalCookieSold += this.cookiesPerHour[i];
-    }
-  },
-};
+const seattle = new City("Seattle", 23, 65, 6.3, [], []);
+const tokyo = new City("Tokyo", 3, 24, 1.2, [], []);
+const dubai = new City("Dubai", 11, 38, 3.7, [], []);
+const paris = new City("Paris", 20, 38, 2.3, [], []);
+const lima = new City("Lima", 2, 16, 4.6, [], []);
 
-// copy and paste fourth shop
-const paris = {
-  location: "Paris",
-  minCust: 20,
-  maxCust: 38,
-  avgCookiesPerCust: 2.3,
-  customersPerHour: [],
-  cookiesPerHour: [],
-  totalCookieSold: 0,
-  calculateSales: function () {
-    for (let i = 0; i < hours.length; i++) {
-      const randNum = randomNumber(this.minCust, this.maxCust);
-      this.customersPerHour.push(randNum);
-      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-      this.totalCookieSold += this.cookiesPerHour[i];
-    }
-  },
-};
+// take element tableofcookies
+const tableDiv = document.getElementById("tableOfCookies");
+// create table
+const cookieTable = document.createElement("table");
+tableDiv.appendChild(cookieTable);
+//create header
+const headerRow = document.createElement("tr");
+cookieTable.appendChild(headerRow);
+const emptyCell = document.createElement("td");
+emptyCell.textContent = "";
+headerRow.appendChild(emptyCell);
+// put hours into header
+for (i = 0; i < hours.length; i++);
+{
+  const headerTD = document.createElement("th");
+  headerTD.textContent = hours[i];
+  headerRow.appendChild(headerTD);
+}
 
-// copy and paste fifth shop
-const lima = {
-  location: "Lima",
-  minCust: 2,
-  maxCust: 16,
-  avgCookiesPerCust: 4.6,
-  customersPerHour: [],
-  cookiesPerHour: [],
-  totalCookieSold: 0,
-  calculateSales: function () {
-    for (let i = 0; i < hours.length; i++) {
-      const randNum = randomNumber(this.minCust, this.maxCust);
-      this.customersPerHour.push(randNum);
-      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-      this.totalCookieSold += this.cookiesPerHour[i];
-    }
-  },
+City.prototype.calculateSales = function () {
+  for (let i = 0; i < hours.length; i++) {
+    const randNum = randomNumber(this.minCust, this.maxCust);
+    this.customersPerHour.push(randNum);
+    this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
+    this.totalCookieSold += this.cookiesPerHour[i];
+  }
 };
 
 seattle.calculateSales();

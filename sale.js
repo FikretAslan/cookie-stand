@@ -31,6 +31,20 @@ function City(
   this.cookiesPerHour = cookiesperhour;
 }
 
+const seattle = new City("Seattle", 23, 65, 6.3, [], []);
+const tokyo = new City("Tokyo", 3, 24, 1.2, [], []);
+const dubai = new City("Dubai", 11, 38, 3.7, [], []);
+const paris = new City("Paris", 20, 38, 2.3, [], []);
+const lima = new City("Lima", 2, 16, 4.6, [], []);
+
+City.prototype.calculateSales = function () {
+  for (let i = 0; i < hours.length; i++) {
+    const randNum = randomNumber(this.minCust, this.maxCust);
+    this.customersPerHour.push(randNum);
+    this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
+    this.totalCookieSold += this.cookiesPerHour[i];
+}
+
 // give a random number between two numbers
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
