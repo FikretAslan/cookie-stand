@@ -20,6 +20,24 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+const seattle = {
+  location: "Seattle",
+  minCust: 23,
+  maxCust: 65,
+  avgCookiesPerCust: 6.3,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookieSold: 0,
+  calculateSales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      const randNum = randomNumber(this.minCust, this.maxCust);
+      this.customersPerHour.push(randNum);
+      this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
+      this.totalCookieSold += this.cookiesPerHour[i];
+    }
+  },
+};
+
 function City(
   location,
   mincust,
@@ -38,7 +56,16 @@ function City(
   this.totalCookiesSold = totalcookies;
 }
 
-const seattle = new City("Seattle", 23, 65, 6.3, [], []);
+City.prototype.calculateSales = function () {
+  for (let i = 0; i < hours.length; i++) {
+    const randNum = randomNumber(this.minCust, this.maxCust);
+    this.customersPerHour.push(randNum);
+    this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
+    this.totalCookieSold += this.cookiesPerHour[i];
+  }
+};
+
+const seattle1 = new City("Seattle", 23, 65, 6.3, [], []);
 const tokyo = new City("Tokyo", 3, 24, 1.2, [], []);
 const dubai = new City("Dubai", 11, 38, 3.7, [], []);
 const paris = new City("Paris", 20, 38, 2.3, [], []);
@@ -63,28 +90,21 @@ for (i = 0; i < hours.length; i++);
   headerRow.appendChild(headerTD);
 }
 
-City.prototype.calculateSales = function () {
-  for (let i = 0; i < hours.length; i++) {
-    const randNum = randomNumber(this.minCust, this.maxCust);
-    this.customersPerHour.push(randNum);
-    this.cookiesPerHour.push(Math.floor(randNum * this.avgCookiesPerCust));
-    this.totalCookieSold += this.cookiesPerHour[i];
-  }
-};
-
 seattle.calculateSales();
 tokyo.calculateSales();
 dubai.calculateSales();
 paris.calculateSales();
 lima.calculateSales();
 
+CookieStore.prototype.render = function () {
+
 // get the element on the page with the id salesData
 const salesData = document.getElementById("salesData");
 
 // add the title for the location
-const seattleH2 = document.createElement("h2");
-seattleH2.textContent = seattle.location;
-salesData.appendChild(seattleH2);
+const h2 = document.createElement("h2");
+h2.textContent = this.location;
+salesData.appendChild(h2);
 
 // create a list to show the cookies sold at each hour
 const seattleUl = document.createElement("ul");
