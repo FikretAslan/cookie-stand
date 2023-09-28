@@ -1,0 +1,72 @@
+h1 {
+  font-size: 75px;
+  text-align: center;
+  border: 5px solid black;
+  margin: 4rem 4rem 4rem 4rem;
+}
+
+h2 {
+  margin: 4rem 4rem 4rem 4rem;
+}
+
+body {
+  margin: 4rem 4rem 4rem 4rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(9, 9, 9);
+  background-color: coral;
+}
+
+table {
+  border: 2px solid black;
+  margin: 4rem 4rem 4rem 4rem;
+}
+
+td {
+  border: 2px solid black;
+}
+
+tr {
+  border: 2px solid black;
+}
+
+th {
+  border: 2px solid black;
+}
+
+form {
+  margin-top: 2rem;
+}
+
+fieldset {
+  width: 200px;
+  border: 5px solid black;
+  margin: 4rem 4rem 4rem 4rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  justify-content: center;
+  padding: 8px;
+  background-color: deeppink;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  padding-left: 1rem;
+}
+
+nav li {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 1rem;
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  color: #0d47a1;
+}

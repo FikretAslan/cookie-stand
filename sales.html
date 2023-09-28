@@ -3,15 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pat's Salmon Cookie Sales</title>
-    <script src="./tim.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Salmon Cookie Sales</title>
+    <script src="./apps.js" defer></script>
   </head>
   <body>
-    <header>Salmon Cookie Sales</header>
-      <h2>Cookie Sales</h2>
-      <div id="salesData"></div>
-      <div id="tableOfCookies"></div>
-      </main>
-    <footer></footer>
+    <header>
+      <h1>Salmon Cookie Sales</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Locations</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <h2>Cookie Sales</h2>
+    <table id="salesData"></table>
+
+    <form>
+      <fieldset>
+        <label>New Store</label>
+        <input name="location" type="text" />
+
+        <label>Minimum Customers</label>
+        <input name="minCust" type="text" />
+
+        <label>Maximum Customers</label>
+        <input name="maxCust" type="text" />
+
+        <label>Average Cookies Per Customer</label>
+        <input name="avgCookiesPerCust" type="text" />
+
+        <button id="myButton">Submit</button>
+      </fieldset>
+    </form>
+    <div id="subs"></div>
   </body>
 </html>

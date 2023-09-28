@@ -85,7 +85,7 @@ const dubai = new CookieStore("Dubai", 11, 38, 3.7);
 const paris = new CookieStore("Paris", 20, 38, 2.3);
 const lima = new CookieStore("Lima", 2, 16, 4.6);
 
-// claculate sales for each store (commented out because the calculate sales in the render method)
+// calculate sales for each store (commented out because the calculate sales in the render method)
 // seattle.calculateSales()
 // tokyo.calculateSales()
 // dubai.calculateSales()
@@ -95,6 +95,7 @@ const lima = new CookieStore("Lima", 2, 16, 4.6);
 // render the header row
 // create the tr
 const headerRow = document.createElement("tr");
+table.appendChild(headerRow);
 const blankTd = document.createElement("td");
 headerRow.appendChild(blankTd);
 
@@ -119,3 +120,23 @@ tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+const myButton = document.querySelector("button");
+
+const form = document.querySelector("form");
+
+//submit to create new location and dusplay on table
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const location = event.target.location.value;
+  const minCust = event.target.minCust.value;
+  const maxCust = event.target.maxCust.value;
+  const avgCookiesPerCust = event.target.avgCookiesPerCust.value;
+  const newLocation = new CookieStore(
+    location,
+    +minCust,
+    +maxCust,
+    +avgCookiesPerCust
+  );
+  newLocation.render();
+});
