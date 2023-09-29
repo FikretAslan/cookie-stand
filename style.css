@@ -3,6 +3,8 @@ h1 {
   text-align: center;
   border: 5px solid black;
   margin: 4rem 4rem 4rem 4rem;
+  background-color: darkslategrey;
+  color: white;
 }
 
 h2 {
@@ -13,24 +15,34 @@ body {
   margin: 4rem 4rem 4rem 4rem;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: rgb(9, 9, 9);
-  background-color: coral;
+  background-color: #e5e5f7;
+  opacity: 0.8;
+  background: linear-gradient(135deg, #444cf755 25%, transparent 25%) -32px 0/
+      64px 64px,
+    linear-gradient(225deg, #444cf7 25%, transparent 25%) -32px 0/ 64px 64px,
+    linear-gradient(315deg, #444cf755 25%, transparent 25%) 0px 0/ 64px 64px,
+    linear-gradient(45deg, #444cf7 25%, #e5e5f7 25%) 0px 0/ 64px 64px;
 }
 
 table {
   border: 2px solid black;
   margin: 4rem 4rem 4rem 4rem;
+  background-color: #0d47a1;
 }
 
 td {
   border: 2px solid black;
+  color: lightcyan;
 }
 
 tr {
   border: 2px solid black;
+  color: navy;
 }
 
 th {
   border: 2px solid black;
+  color: aquamarine;
 }
 
 form {
@@ -41,6 +53,8 @@ fieldset {
   width: 200px;
   border: 5px solid black;
   margin: 4rem 4rem 4rem 4rem;
+  background-color: darkred;
+  color: white;
 }
 
 nav {
@@ -48,7 +62,7 @@ nav {
   justify-content: space-between;
   justify-content: center;
   padding: 8px;
-  background-color: deeppink;
+  background-color: rgb(176, 200, 215);
 }
 
 nav ul {
